@@ -1,0 +1,370 @@
+html{
+   width:100%;
+   height:100%;
+}
+
+body{
+   background-image: url("../IMG/rocca.png");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   margin:0;
+}
+
+header
+{
+   padding-top:5px;
+   padding-bottom:5px;
+   width: 100%;
+   height: 15vh;
+   display: grid;
+   grid-template-columns: 20% 60% 20%;
+   place-items: center;
+   background-color: rgba(255, 255, 255, 0.835);
+
+   align-items: center;
+   justify-content: space-around;
+
+   backdrop-filter: blur(10px);
+
+   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;   
+      
+   h1{
+      font-size: 2.7vw;
+      display: inline;
+      text-align: center;
+   }
+
+   .logo{
+      scale: 1;
+   }
+}
+
+@media (min-width:800px)
+{
+   header{
+      h1{
+         font-size: 2.4vw;
+      }
+      .logo{
+         scale: 0.8;
+      }
+   }
+}
+@media (max-width:799px)
+{
+   header{
+      h1{
+         font-size: 4vw;
+      }
+      .logo{
+         scale: 0.5;
+      }
+   }
+}
+
+
+nav{
+   z-index: 100;
+   width: 100%;
+   height: 8vh;
+   display: flex;
+   background-color: rgba(255, 255, 255, 0.75);
+   border-bottom-left-radius: 15px;
+   border-bottom-right-radius: 15px;
+
+   backdrop-filter: blur(10px);
+
+
+   position: sticky;
+   top:0;
+
+   align-items: center;
+   justify-content: space-around;
+
+   a{
+      text-decoration: none;
+      color: black;
+   }
+
+   .button{
+      img{
+         width:auto;
+         height:auto;
+         vertical-align: middle;
+         margin-right:5px;
+      }
+   }
+}
+@media(max-width:579px)
+{
+   nav{
+      a{
+         font-size:0px;
+      }
+   }
+}
+
+
+.move{
+   width:95%;
+   margin:auto;
+   margin-top:4vh;
+   display:flex;
+   justify-content: space-between;
+   .arrow{
+      display:flex;
+      justify-content: center;
+      width:70px;
+      height:70px;
+      background-color: rgba(255, 255, 255, 0.63);
+      border-radius: 500px;
+      a{
+         position:absolute;
+         top:50%;
+         left:50%;
+      }
+   }
+}
+
+
+
+
+main{
+   margin:3vh;
+
+   .map_container, .image_container{
+      margin:auto;
+      object-fit:scale-down;
+   }
+   .map, .image{
+      box-shadow:0px 5px 10px 2px rgba(0, 0, 0, 0.216);
+      max-width: 100%;
+
+      margin:auto;
+      border-radius: 15px;
+   }
+
+
+
+   .locations{
+      box-shadow:0px 5px 10px 2px rgba(0, 0, 0, 0.216);
+      width:90%;
+      margin:auto;
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 15px;
+      padding:15px;
+      text-align: center;
+      min-height: 94%;
+      max-width: 92%;
+      vertical-align: middle;
+      
+      
+      h2{
+         font-weight: 700;
+         font-size:xx-large;
+      }
+      
+      .link{
+         display:block;
+         padding:5px;
+         text-decoration: none;
+         color:black;
+         border-radius:10px;
+      }
+      .link:hover{
+         background-color: rgba(255, 255, 255, 0.677);
+      }
+   }
+
+
+   .text_container{
+
+      box-shadow:0px 5px 10px 2px rgba(0, 0, 0, 0.216);
+      width:90%;
+      margin:auto;
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 15px;
+      padding:15px;
+      text-align: center;
+      min-height: 94%;
+
+      
+      
+      h2{
+         font-weight: 700;
+         font-size:xx-large;
+      }
+
+      .image_container{
+         max-width: 800px;
+         margin-top:50px;
+         margin-bottom: 50px;
+      }
+      
+      .text_image_container{
+         text-align: left;
+      }
+
+   }
+}
+@media(min-width:1000px)
+{
+   .home_main{
+      display:grid;
+      grid-template-columns: 60% 40%;
+   }
+
+
+}
+@media(max-width:999px)
+{
+   main{
+      .map, .image{
+         display:flex;
+         justify-content:center;
+         margin:auto;
+         margin-bottom: 1.3vh;
+      }
+      .locations, .text_container{
+         margin:auto;
+         width:95%;
+
+      }
+      .text_container{
+         margin-bottom: 1.3vh;
+      }
+   }
+}
+
+
+
+footer{
+   text-align: center;
+   box-shadow:0px 5px 10px 2px rgba(0, 0, 0, 0.216);
+   width: 100%;
+   height: auto;
+   margin:auto;
+   background-color: rgba(255, 255, 255, 0.75);
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+
+   padding-bottom: 5px;
+   
+   h2{
+      text-align:center;
+   }
+   
+
+   a{
+      text-decoration: none;
+      color: blue;
+   }
+
+   p{
+      margin:0;
+   }
+
+   margin-bottom:20px;
+}
+@media(min-width:433px)
+{
+   footer{
+      .footer1{ 
+         grid-area: footer_top;
+      }
+      .footer2{ 
+         grid-area: footer_left; 
+         padding:10px;
+      }
+      .footer3{ 
+         grid-area: footer_right;
+         padding:10px;
+      }
+      margin-top:3.3vh;
+
+      display:grid;
+      grid-template-areas:
+         'footer_top footer_top'
+         'footer_left footer_right';
+   }
+}
+@media(max-width:432px)
+{
+   footer{
+      margin-top:2.5vh;
+      h2{
+         font-size:smaller;
+         padding:7px;
+      }
+      padding:2px;
+      padding-top:15px;
+      text-align:center;
+   }
+}
+
+
+
+/* LOCATIONS - TAPPE */
+
+.locations_page{
+   margin-top:5vh;
+   width:100%;
+   display:flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+
+   a{
+      transition: 0.7s;
+      margin:18px;
+      display:inline;
+      width:400px;
+      height:400px;
+      text-decoration:none;
+      color:black;
+   }
+   a:hover{
+      transform: scale(105%);
+   }
+
+   .location_container{
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content:end;
+      
+      box-shadow:0px 5px 10px 2px rgba(0, 0, 0, 0.216);
+      width:100%;
+      height:100%;
+      border-radius:15px;
+      text-align: center;
+
+      background-size: cover;
+      background-position: center;
+
+      .info{
+         color:rgb(0, 0, 0);
+         background-color: rgba(255, 255, 255, 0.75);
+         width:100%;
+         border-bottom-left-radius:15px;
+         border-bottom-right-radius:15px;
+      }
+   }
+
+   .one{background-image: url(../LOCATIONS/01/img0.jpg)}
+   .two{background-image: url(../LOCATIONS/02/img0.jpg)}
+   .three{background-image: url(../LOCATIONS/03/img0.jpg)}
+   .four{background-image: url(../LOCATIONS/04/img0.jpg)}
+   .five{background-image: url(../LOCATIONS/05/img0.jpg)}
+   .six{background-image: url(../LOCATIONS/06/img0.jpg)}
+   .seven{background-image: url(../LOCATIONS/07/img0.jpg)}
+   .eight{background-image: url(../LOCATIONS/08/img0.jpg)}
+   .nine{background-image: url(../LOCATIONS/09/img0.jpg)}
+   .ten{background-image: url(../LOCATIONS/10/img0.jpg)}
+   .eleven{background-image: url(../LOCATIONS/11/img0.png)}
+   .twelve{background-image: url(../LOCATIONS/12/img0.jpg)}
+   .thirthteen{background-image: url(../LOCATIONS/13/img0.jpg)}
+   .fourteen{background-image: url(../LOCATIONS/14/img0.jpg)}
+}
+
+

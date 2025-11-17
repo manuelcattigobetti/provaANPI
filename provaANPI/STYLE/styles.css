@@ -1,0 +1,338 @@
+/* ====== Variabili & Reset ====== */
+/* :root definisce variabili CSS globali riutilizzabili per colori e effetti. */
+:root {
+  --bg: #f6f8fa;              /* Colore di sfondo generale della pagina */
+  --card-bg: #ffffff;          /* Sfondo dei contenitori (card) */
+  --text: #0f172a;             /* Colore base del testo (alto contrasto) */
+  --muted: #64748b;            /* Testi secondari o descrittivi */
+  --border: #e2e8f0;           /* Colore dei bordi neutri */
+  --primary: #2563eb;          /* Colore primario (accento, bottoni) */
+  --primary-700: #1d4ed8;      /* Variante più scura per hover */
+  --ring: rgba(37, 99, 235, 0.25); /* Effetto focus (box-shadow outline) */
+  --success: #16a34a;          /* Potenziale colore successo (non usato qui) */
+  --danger: #dc2626;           /* Potenziale colore errore (non usato qui) */
+}
+
+/* box-sizing border-box: include padding e border nel calcolo di width/height */
+* { box-sizing: border-box; }
+
+/* Assicura che l'altezza sia 100% per semplificare il centraggio verticale */
+html, body { height: 100%; }
+
+body {
+  margin: 0; /* Rimuove il margine predefinito del body */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; /* Stack di font moderni */
+  /* Sfondo con due gradient radiali per un effetto leggero decorativo */
+  background: radial-gradient(1200px 600px at 10% 0%, #f0f7ff 0%, transparent 60%),
+              radial-gradient(1200px 800px at 100% 100%, #f1f5f9 0%, transparent 60%),
+              var(--bg);
+  color: var(--text); /* Colore testo principale */
+  -webkit-font-smoothing: antialiased; /* Migliora rendering su WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Migliora rendering su macOS Firefox */
+}
+
+/* ====== Layout ====== */
+/* .container: wrapper principale che centra il contenuto verticalmente e orizzontalmente */
+.container {
+  min-height: 100vh;        /* Occupa tutta l'altezza della viewport */
+  display: grid;            /* Grid usato per il centraggio */
+  place-items: center;      /* Centra orizzontalmente e verticalmente */
+  padding: 24px;            /* Spazio interno responsivo */
+}
+
+/* .form-card: contenitore visivo del form (card con ombra e bordo) */
+.form-card {
+  width: 100%;
+  max-width: 560px;                     /* Larghezza massima per leggibilità */
+  background: var(--card-bg);            /* Sfondo bianco della card */
+  border: 1px solid var(--border);       /* Bordo sottile neutro */
+  border-radius: 16px;                   /* Angoli arrotondati */
+  box-shadow: 0 10px 25px rgba(2, 8, 23, 0.06), 0 2px 6px rgba(2, 8, 23, 0.04); /* Ombre morbide multilivello */
+  padding: 28px;                         /* Spazio interno */
+}
+
+/* .form-title: titolo del form, margini ottimizzati */
+.form-title {
+  margin: 0 0 18px;      /* Rimuove margine sopra, spazio sotto per separazione */
+  font-size: 1.5rem;     /* Dimensione leggibile evidenziata */
+  line-height: 1.25;     /* Compattezza verticale controllata */
+}
+
+/* ====== Form ====== */
+/* .form-group: blocco per etichetta+input+help text */
+.form-group {
+  display: flex;             /* Layout verticale naturale */
+  flex-direction: column;    /* Allinea figli in colonna */
+  gap: 8px;                  /* Spazio coerente tra label/input/help */
+  margin-bottom: 16px;       /* Separazione tra gruppi */
+}
+
+/* label: stile base delle etichette del form */
+label {
+  font-weight: 600;          /* Maggiore enfasi per l'etichetta */
+}
+
+/* Campi di input testuali, email, data, password, select e textarea */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"],
+select, textarea {
+  width: 100%;                          /* Riempie la larghezza del contenitore */
+  padding: 12px 14px;                    /* Spazio interno per comodità di input */
+  border: 1px solid var(--border);       /* Bordo neutro */
+  border-radius: 10px;                   /* Angoli arrotondati coerenti con card */
+  background: #ffffff;                   /* Sfondo bianco per contrasto */
+  color: var(--text);                    /* Colore del testo principale */
+  outline: none;                         /* Rimuove outline predefinito (sostituito da focus custom) */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; /* Transizioni morbide su focus */
+}
+
+/* Colore placeholder più tenue */
+input::placeholder { color: #94a3b8; }
+
+/* Stato di focus accessibile con ring blu e cambio colore bordo */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary); /* Evidenzia il campo attivo */
+  box-shadow: 0 0 0 4px var(--ring); /* Anello soft attorno al campo */
+}
+
+/* Stato dei campi in sola lettura (email sessione) */
+input.readonly[readonly] {
+  background: #f8fafc;  /* Leggero grigio per indicare non editabile */
+  color: #475569;       /* Testo leggermente attenuato */
+}
+
+/* help-text: testo di supporto sotto ai campi (es. obbligatorio) */
+.help-text {
+  font-size: 0.85rem;   /* Più piccolo del corpo principale */
+  color: var(--muted);  /* Colore attenuato per non rubare focus */
+}
+
+/* ====== Bottoni ====== */
+/* .btn: stile base condiviso da tutti i bottoni */
+.btn {
+  display: inline-flex;            /* Allinea contenuto e permette gap interno */
+  align-items: center;             /* Centra verticalmente icone/testo */
+  justify-content: center;         /* Centra orizzontalmente il contenuto */
+  gap: 8px;                        /* Spazio fra eventuali icone e testo */
+  padding: 12px 16px;              /* Area clic ampia e confortevole */
+  border-radius: 10px;             /* Arrotondamento coerente con input */
+  border: 1px solid transparent;   /* Facilita eventuali stati outline futuri */
+  font-weight: 600;                /* Enfasi sul testo del bottone */
+  cursor: pointer;                 /* Indicatore interattività */
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.02s ease; /* Feedback fluido */
+}
+
+/* Effetto pressione per feedback tattile */
+.btn:active { transform: translateY(1px); }
+
+/* .btn-primary: variante principale (azione primaria del form) */
+.btn-primary {
+  width: 100%;                         /* Occupa tutta la larghezza per evidenza */
+  background: var(--primary);          /* Colore di brand/azione */
+  color: #ffffff;                      /* Contrasto testo/sfondo */
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25); /* Ombra per profondità visiva */
+}
+
+/* Hover: scurisce il bottone per feedback visivo */
+.btn-primary:hover { background: var(--primary-700); }
+
+/* ====== Responsività ====== */
+/* Media query per schermi piccoli: riduce padding e dimensione titolo per adattarsi meglio */
+@media (max-width: 420px) {
+  .form-card { padding: 20px; }
+  .form-title { font-size: 1.25rem; }
+}
+
+/* =====================================================
+   Barra utente (home.php) e componenti utili riuniti
+   Spostati da inline style a foglio globale per riuso
+   ===================================================== */
+
+/* .top-bar: barra superiore nera con dati utente e azioni */
+.top-bar {
+  background:#f3f4f6; /* grigio chiaro di base */
+  color: var(--primary); /* testo blu per default */
+  height:25px; /* altezza base desktop */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 16px;
+  font-size:0.85rem;
+  line-height:25px;
+  position:relative;
+  overflow:hidden; /* evita overflow verticale */
+}
+
+/* sfumatura verso il basso (50px) che degrada a bianco */
+.top-bar::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  height: 50px;
+  background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+  pointer-events: none; /* non intercetta i click */
+}
+
+/* .user-info: contenitore flessibile orizzontale dei dati */
+.user-info {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap; /* consente adattamento su mobile */
+  flex:1;
+}
+
+/* testo dati utente in blu (ereditato), eccetto badge con classi dedicate */
+.user-info { color: var(--primary); }
+
+/* Elementi singoli (cognome, nome, email, ecc.) */
+.user-info span {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  white-space:nowrap;
+}
+
+/* Link icone (home, logout) nella barra */
+.home-link {
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  color: var(--primary);
+  font-size:1.2rem;
+  transition:opacity .2s;
+}
+.home-link:hover { opacity:.7; }
+
+/* distanza tra icone: applica margine al secondo link (logout) */
+.home-link + .home-link { margin-left:12px; }
+
+/* Coordinate GPS */
+.gps-coords {
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:.75rem;
+  opacity:.9;
+}
+
+/* =============================
+   MOBILE PORTRAIT
+   ============================= */
+@media (max-width:600px) and (orientation:portrait) {
+  .top-bar {
+    height:auto; /* cresce se serve */
+    min-height:80px; /* altezza minima per contenere tutti gli elementi */
+    padding:10px 12px; /* padding aumentato per dare più respiro */
+    line-height:1.3;
+    flex-wrap:wrap;
+    align-items:flex-start; /* allinea in alto per migliore distribuzione */
+  }
+  .user-info { 
+    gap:10px; 
+    font-size:.80rem; /* leggermente più grande per leggibilità */
+    padding-bottom:4px; /* spazio extra sotto */
+  }
+  .user-info span { flex:1 1 45%; margin-bottom:2px; }
+  .home-link { font-size:1.4rem; align-self:flex-start; margin-top:4px; }
+  #datetime-display { flex:1 1 100%; font-size:.82rem; margin-top:4px; }
+  .gps-coords { font-size:.78rem; margin-top:2px; }
+}
+
+/* =============================
+   MOBILE LANDSCAPE
+   ============================= */
+@media (max-width:600px) and (orientation:landscape) {
+  .top-bar { 
+    height:auto; 
+    min-height:48px; /* altezza minima aumentata */
+    padding:6px 10px; /* padding aumentato */
+  }
+  .user-info {
+    gap:10px;
+    font-size:.72rem; /* leggermente più grande */
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .user-info span { flex:0 0 auto; }
+  .gps-coords { font-size:.70rem; } /* font leggermente più grande */
+  #datetime-display { font-size:.72rem; }
+}
+
+/* =============================
+   TABLET MEDIO
+   ============================= */
+@media (min-width:601px) and (max-width:900px) {
+  .top-bar { height:38px; }
+  .user-info { font-size:.8rem; }
+}
+
+/* =====================================================
+   Overlay di benvenuto (index.html)
+   ===================================================== */
+.overlay {
+  position:fixed; inset:0; width:100vw; height:100vh;
+  background:rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:32px; color:#fff;
+  font-family:sans-serif; font-size:1.2rem;
+  transition:opacity .3s; z-index:9999;
+}
+.overlay-content {
+  background:#fff; color:#0f172a;
+  padding:36px 28px; border-radius:18px;
+  box-shadow:0 6px 32px rgba(0,0,0,.2);
+  text-align:center; min-width:340px; max-width:92vw;
+}
+.overlay-btn {
+  margin:20px 16px 0 16px; padding:18px 0; width:180px;
+  font-size:1.18rem; border-radius:10px; border:2px solid transparent;
+  cursor:pointer; transition:box-shadow .2s, transform .2s, background .2s, filter .2s;
+  box-shadow:0 2px 10px rgba(0,0,0,.12);
+  font-weight:700; letter-spacing:.5px; outline:none; display:inline-block; color:#fff;
+}
+.overlay-btn:active { transform:scale(.97); }
+.overlay-btn.visit { background:linear-gradient(90deg,#3a8dde 0%,#6ed6ff 100%); border-color:#3a8dde; }
+.overlay-btn.play { background:linear-gradient(90deg,#ff7c2b 0%,#ffd86e 100%); border-color:#ff7c2b; }
+.overlay-btn:hover { box-shadow:0 4px 16px rgba(0,0,0,.18); filter:brightness(1.08); }
+
+/* Piccolo adattamento overlay su schermi molto stretti */
+@media (max-width:420px) {
+  .overlay-content { padding:28px 20px; min-width:280px; }
+  .overlay-btn { width:140px; font-size:1rem; padding:14px 0; }
+}
+
+/* =====================================================
+   Status età utente (home.php)
+   ===================================================== */
+.status-maggiorenne { color:#16a34a; font-weight:700; }
+.status-minorenne { color:#dc2626; font-weight:700; }
+.status-eta-nd { opacity:.6; }
+
+/* DateTime display (home.php) */
+#datetime-display, .datetime-display { font-size:.85rem; font-weight:600; }
+
+/* Nascondi GPS all'avvio; JS lo mostra */
+#gps-display { display:none; }
+
+/* Logout link spacing (second icon) */
+.home-link + .home-link { margin-left:12px; }
+
+/* Testo introduttivo form login1 */
+.intro-text { margin-bottom:20px; color:var(--muted); }
+
+/* Overlay headings e paragrafi specifici */
+.overlay-content h2 { margin:0 0 18px; font-size:2rem; }
+.overlay-content p { margin:0 0 28px; }
+.overlay-actions { display:flex; flex-direction:row; gap:18px; justify-content:center; flex-wrap:wrap; }
+
+/* Arrow trasparente (locations) */
+.arrow.transparent { background-color:transparent !important; }
+
+/* Generic full size container (login.html) */
+.full-size { width:100%; height:100%; }
