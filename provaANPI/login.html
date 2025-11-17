@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in</title>
+
+    <style>
+        .form-container {
+            margin: auto;
+            width: 350px;
+            height: 325px;
+            background-color: rgba(255, 255, 255, 0.75);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 20px 30px;
+        }
+
+        .title {
+            font-family: "Titillium Web", sans-serif;
+            font-weight: 800;
+            font-size: xx-large;
+            font-style: normal;
+            text-align: center;
+            margin: 10px 0 30px 0;
+        }
+
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 15px;
+        }
+
+        .input {
+            border-radius: 10px;
+            border: 0px solid #c0c0c0;
+            box-sizing: border-box;
+            padding: 12px 15px;
+        }
+
+        .page-link {
+            font-family: "Titillium Web", sans-serif;
+            font-weight: 400;
+            text-decoration: underline;
+            margin: 0;
+            text-align: end;
+            color: #6c6c6c;
+            text-decoration-color: #6c6c6c;
+        }
+
+        .page-link-label {
+            cursor: pointer;
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .page-link-label:hover {
+            color: #00289f;
+        }
+
+        .form-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            font-family: "Titillium Web", sans-serif;
+            font-weight: 400;
+            font-size: medium;
+            font-style: normal;
+            border-radius: 10px;
+            border: 0 !important;
+            outline: 0 !important;
+            background: rgb(37, 130, 229);
+            color: white;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .form-btn:active {
+            box-shadow: none;
+        }
+
+        .sign-up-label {
+            margin: 0;
+            font-size: 10px;
+            color: #747474;
+        }
+
+        .sign-up-link {
+            margin-left: 1px;
+            font-size: 11px;
+            text-decoration: underline;
+            text-decoration-color: teal;
+            color: teal;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .buttons-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .return_arrow {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            padding: 10px;
+            fill: #ffffff;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+
+            body {
+                display: flex;
+                margin: 0px;
+                width: 100%;
+                height: 100%;
+                background-image: url(IMG/rocca_login.jpg);
+                backdrop-filter: blur(10px);
+                background-attachment: fixed;
+                background-size: cover;
+            }
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+<body>
+<div class="full-size">
+    <a href="index.html"> <img src="IMG/ICONS/arrow_back.svg" class="return_arrow"> </a>
+    <div class="container">
+        <div class="form-container">
+            <p class="title">Benvenuto!</p>
+            <form class="form">
+                <input type=f"email" class="input" placeholder="Email">
+                <input type="password" class="input" placeholder="Password">
+                <p class="page-link">
+                    <span class="page-link-label">Ho dimenticato la password</span>
+                </p>
+                <a href="./index.html">
+                    <button class="form-btn">Log in</button>
+                </a>
+            </form>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

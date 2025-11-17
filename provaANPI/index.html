@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="FONT/TITILLIUM/font.css" media="all">
+    <link rel="stylesheet" type="text/css" href="STYLE/style.css" media="all">
+    <link rel="stylesheet" href="STYLE/styles.css">
+    <title>ANPI | Home</title>
+</head>
+<body>
+<!-- Overlay oscurante all'avvio -->
+<div id="welcome-overlay" class="overlay">
+    <div class="overlay-content">
+        <h2>Benvenuto!</h2>
+        <p>Vuoi visitare il sito oppure giocare con le domande sulle tappe?</p>
+        <div class="overlay-actions">
+            <button id="visit-site-btn" class="overlay-btn visit">VUOI VISITARE IL SITO</button>
+            <button id="play-game-btn" class="overlay-btn play">VUOI GIOCARE</button>
+        </div>
+    </div>
+</div>
+
+<header>
+    <a href="https://www.anpi.it/" class="logo left"> <img src="IMG/LOGO/anpi.jpeg"></a>
+    <h1>Percorsi di Memoria - Fascismo e Resistenza a Scandiano</h1>
+    <a href="https://istitutogobetti.edu.it" class="logo right"> <img src="IMG/LOGO/gobetti.png"></a>
+</header>
+
+<nav>
+    <a href="index.html" class="button"><img src="IMG/ICONS/home.svg"/>Home</a>
+    <a href="tappe.html" class="button"><img src="IMG/ICONS/location.svg"/>Tappe</a>
+    <a href="info.html" class="button"><img src="IMG/ICONS/info.svg"/>Info</a>
+    <a href="https://www.istitutogobetti.it/cookie-policy/" class="button"><img src="IMG/ICONS/cookies.svg"/>Cookies</a>
+    <a href="login.html" class="button"><img src="IMG/ICONS/login.svg"/>Log-in</a>
+</nav>
+
+
+<main class="home_main">
+    <div class="map_container">
+        <img class="map" src="IMG/mappa.png" id="map-image" usemap="#map"/>
+        <map name="map">
+            <area shape="circle" coords="539, 35, 19" href="LOCATIONS/14" title="Tappa 14">
+            <area shape="circle" coords="258, 196, 18" href="LOCATIONS/13" title="Tappa 13">
+            <area shape="circle" coords="258, 272, 16" href="LOCATIONS/12" title="Tappa 12">
+            <area shape="circle" coords="264, 356, 16" href="LOCATIONS/11" title="Tappa 11">
+            <area shape="circle" coords="278, 404, 19" href="LOCATIONS/10" title="Tappa 10">
+            <area shape="circle" coords="305, 435, 15" href="LOCATIONS/09" title="Tappa 9">
+            <area shape="circle" coords="374, 410, 18" href="LOCATIONS/08" title="Tappa 8">
+            <area shape="circle" coords="337, 424, 12" href="LOCATIONS/07" title="Tappa 7">
+            <area shape="circle" coords="432, 354, 16" href="LOCATIONS/06" title="Tappa 6">
+            <area shape="circle" coords="443, 396, 13" href="LOCATIONS/05" title="Tappa 5">
+            <area shape="circle" coords="501, 411, 18" href="LOCATIONS/04" title="Tappa 4">
+            <area shape="circle" coords="457, 597, 19" href="LOCATIONS/03" title="Tappa 3">
+            <area shape="circle" coords="532, 520, 21" href="LOCATIONS/02" title="Tappa 2">
+            <area shape="circle" coords="608, 458, 17" href="LOCATIONS/01" title="Tappa 1">
+        </map>
+
+    </div>
+    <div class="locations">
+        <h2>TAPPE</h2>
+        <a href="LOCATIONS/01" class="link">1. Via Vallisneri 12</a>
+        <a href="LOCATIONS/02" class="link">2. Piazza Nuovo Mondo</a>
+        <a href="LOCATIONS/03" class="link">3. Via Trento 7</a>
+        <a href="LOCATIONS/04" class="link">4. Piazza Duca d’Aosta, monumento ai caduti</a>
+        <a href="LOCATIONS/05" class="link">5. Piazza Feltrino Boiardo</a>
+        <a href="LOCATIONS/06" class="link">6. Via Vallisneri 6</a>
+        <a href="LOCATIONS/07" class="link">7. Via Cesare Magati</a>
+        <a href="LOCATIONS/08" class="link">8. Chiesa della Natività</a>
+        <a href="LOCATIONS/09" class="link">9. Torrione della Rocca</a>
+        <a href="LOCATIONS/10" class="link">10.Piazza Fiume</a>
+        <a href="LOCATIONS/11" class="link">11. Via Garibaldi 8</a>
+        <a href="LOCATIONS/12" class="link">12. Piazza Spallanzani 8</a>
+        <a href="LOCATIONS/13" class="link">13. Via Francesco Crispi 1</a>
+        <a href="LOCATIONS/14" class="link">14. Parco della Resistenza, monumento Munari</a>
+    </div>
+</main>
+
+
+<footer>
+    <h2 class="footer1">Progetto realizzato da alcuni studenti dell’Istituto P. Gobetti in collaborazione con A.N.P.I.
+        Scandiano</h2>
+    <div class="anpi info footer2">         <!--GOBETTI-->
+        <p>Indirizzo: Via della Repubblica, 41, 42019 Scandiano (RE)</p>
+        <p>Telefono: 0522 984149</p><br>
+        <p>Email: reis00300n@istruzione.it</p><br>
+        <a href="https://www.istitutogobetti.it">Sito Ufficiale Istituto P.Gobetti</a>
+    </div>
+
+    <div class="gobetti info footer3">      <!--ANPI-->
+        <p>Indirizzo: Via Gilberto Fogliani, 7, 42019 Scandiano (RE)</p>
+        <p>Telefono: 340 5067137</p><br>
+        <p>PEC: anpi.comitatonazionale@pec.it</p><br>
+        <a href="https://www.anpi.it">Sito Ufficiale A.N.P.I.</a>
+    </div>
+</footer>
+
+<script src="JS/map.js"></script>
+<script>
+// Overlay: mostra solo se non è già stato accettato in questo tab
+function overlayAccepted() {
+    // sessionStorage: persiste solo finché il tab è aperto
+    return sessionStorage.getItem('overlayAccepted') === '1';
+}
+const overlay = document.getElementById('welcome-overlay');
+if (overlayAccepted()) {
+    overlay.style.display = 'none';
+}
+document.getElementById('visit-site-btn').onclick = function() {
+    sessionStorage.setItem('overlayAccepted', '1');
+    overlay.style.opacity = '0';
+    setTimeout(() => { overlay.style.display = 'none'; }, 300);
+};
+document.getElementById('play-game-btn').onclick = function() {
+    window.location.href = 'login1.php';
+};
+</script>
+</body>
+</html>
